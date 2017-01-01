@@ -148,8 +148,6 @@ def cancel():
 def help():
 	return question(render_template('help')).simple_card('Help', render_template('help'))
 
-logger.info('help please***********************************************' + '\n')
-
 @ask.session_ended
 def session_ended():
 	return "", 200
