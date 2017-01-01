@@ -1,0 +1,170 @@
+AddSenderIntent sender {Name}
+AddSenderIntent sender is {Name}
+
+AddUserIntent add account for {Recipient}
+AddUserIntent add message box for {Recipient}
+AddUserIntent add inbox for {Recipient}
+AddUserIntent add user for {Recipient}
+AddUserIntent can you add account for {Recipient}
+AddUserIntent can you add message box for {Recipient}
+AddUserIntent can you add user for {Recipient}
+AddUserIntent can you add {Recipient}
+AddUserIntent can you create account for {Recipient}
+AddUserIntent can you create message box for {Recipient}
+AddUserIntent can you create inbox for {Recipient}
+AddUserIntent can you create user for {Recipient}
+AddUserIntent can you create {Recipient}
+AddUserIntent can you make account for {Recipient}
+AddUserIntent can you make message box for {Recipient}
+AddUserIntent can you make user for {Recipient}
+AddUserIntent create account for {Recipient}
+AddUserIntent create message box for {Recipient}
+AddUserIntent create user for {Recipient}
+AddUserIntent make account for {Recipient}
+AddUserIntent make message box for {Recipient}
+AddUserIntent make user for {Recipient}
+AddUserIntent please add account for {Recipient}
+AddUserIntent please add message box for {Recipient}
+AddUserIntent please add user for {Recipient}
+AddUserIntent please add {Recipient}
+AddUserIntent please create account for {Recipient}
+AddUserIntent please create message box for {Recipient}
+AddUserIntent please create user for {Recipient}
+AddUserIntent please create {Recipient}
+AddUserIntent please make account for {Recipient}
+AddUserIntent please make message box for {Recipient}
+AddUserIntent please make user for {Recipient}
+
+
+LeaveMessageIntent tell {Recipient} {the cat is hiding under the bed|Message} using Literal
+LeaveMessageIntent tell {Recipient} {remember to bring an umbrella today|Message} using Literal
+LeaveMessageIntent tell {Recipient} {the food is on the stove|Message} using Literal
+LeaveMessageIntent tell {Recipient} {the leftovers are in the refridgerator|Message} using Literal
+LeaveMessageIntent tell {Recipient} {please call the doctors office to make an appointment|Message} using Literal
+
+LeaveMessageIntent tell {Recipient} {I will be back at five|Message} using Literal
+LeaveMessageIntent tell {Recipient} {can you buy apples for me when you get groceries later|Message} using Literal
+LeaveMessageIntent tell {Recipient} {dont go to bed too late|Message} using Literal
+LeaveMessageIntent tell {Recipient} {good luck on your exam|Message} using Literal
+LeaveMessageIntent tell {Recipient} {you left the notebook in the kitchen|Message} using Literal
+LeaveMessageIntent tell {Recipient} {I put your book on your desk|Message} using Literal
+LeaveMessageIntent tell {Recipient} {do you want to get dinner with us tonight|Message} using Literal
+LeaveMessageIntent tell {Recipient} {the professor said the exam is on Friday|Message} using Literal
+
+
+
+
+
+RetrieveMessageIntent any messages for {Recipient}
+
+RetrieveMessageIntent any notes for {Recipient}
+
+RetrieveMessageIntent any voicemail for {Recipient}
+
+RetrieveMessageIntent are there any messages for {Recipient}
+
+RetrieveMessageIntent are there any notes for {Recipient}
+
+RetrieveMessageIntent are there any voicemail for {Recipient}
+
+RetrieveMessageIntent are there messages for {Recipient}
+
+RetrieveMessageIntent are there notes for {Recipient}
+
+RetrieveMessageIntent are there some messages for {Recipient}
+
+RetrieveMessageIntent are there some notes for {Recipient}
+
+RetrieveMessageIntent are there some voicemail for {Recipient}
+
+RetrieveMessageIntent is there voicemail for {Recipient}
+
+RetrieveMessageIntent get messages for {Recipient}
+
+RetrieveMessageIntent get notes for {Recipient}
+
+RetrieveMessageIntent get voicemail for {Recipient}
+
+RetrieveMessageIntent please get messages for {Recipient}
+
+RetrieveMessageIntent please get notes for {Recipient}
+
+RetrieveMessageIntent please get voicemail for {Recipient}
+
+RetrieveMessageIntent please retrieve messages for {Recipient}
+
+RetrieveMessageIntent please retrieve notes for {Recipient}
+
+RetrieveMessageIntent please retrieve voicemail for {Recipient}
+
+RetrieveMessageIntent retrieve messages for {Recipient}
+
+RetrieveMessageIntent retrieve notes for {Recipient}
+
+RetrieveMessageIntent retrieve voicemail for {Recipient}
+
+RetrieveMessageIntent retrieve what is saved for {Recipient}
+
+RetrieveMessageIntent retrieve whats saved for {Recipient}
+
+
+
+
+DeleteMessageIntent clear messages for {Recipient}
+
+DeleteMessageIntent clear inbox for {Recipient}
+
+DeleteMessageIntent please clear messages for {Recipient}
+
+DeleteMessageIntent please clear inbox for {Recipient}
+
+DeleteMessageIntent delete inbox for {Recipient}
+
+DeleteMessageIntent delete inbox {Recipient}
+
+
+
+
+
+AMAZON.StopIntent bye
+
+AMAZON.StopIntent done
+
+AMAZON.StopIntent i am done
+
+AMAZON.StopIntent no
+
+AMAZON.StopIntent no thanks
+
+AMAZON.StopIntent no thank you
+
+AMAZON.StopIntent exit
+
+AMAZON.StopIntent quit
+
+
+
+
+AMAZON.CancelIntent stop
+
+AMAZON.CancelIntent cancel
+
+AMAZON.CancelIntent end
+
+AMAZON.CancelIntent never mind
+
+
+
+AMAZON.HelpIntent for help
+
+AMAZON.HelpIntent help
+
+AMAZON.HelpIntent what can i say
+
+AMAZON.HelpIntent what can i do
+
+AMAZON.HelpIntent what should I do
+
+AMAZON.HelpIntent what to do
+
+
