@@ -15,7 +15,7 @@ BUCKET_NAME = 'alexa-messenger'
 
 @ask.launch
 def new_game():
-    return question("Welcome to Messenger.")
+    return question(render_template('welcome'))
 
 @ask.intent("AddUserIntent", mapping={'name': 'Recipient'})
 def addUser(name):
@@ -29,11 +29,17 @@ def addUser(name):
 		return question(render_template('repeat_add_user'))
 		
 	ID = str(session.user.userId)
-	file_name = ID + name + '.txt'
-	s3.Object(BUCKET_NAME, file_name ).put(Body=open(file_name, 'w+'))
-	return statement('I will add an inbox for you.')
 
-@ask.intent('LeaveMessageIntent', mapping={'sender': 'Sender', 'recipient': 'Recipient', 'message': 'Message'})
+	file_name = ID[18:] + name + '.txt'
+	# s3.Object(BUCKET_NAME, file_name ).put(Body=open(file_name, 'w+'))
+	
+	obj = s3.Object(BUCKET_NAME,file_name)
+	contents = ""
+	obj.put(Body=contents)
+	
+	return statement('I will add a new inbox for you.')
+
+@ask.intent('LeaveMessageIntent', mapping={'recipient': 'Recipient', 'message': 'Message'})
 def storeMessage(recipient, message):
 	key_list = []
 	for obj in BUCKET.objects.all():
@@ -52,7 +58,7 @@ def storeMessage(recipient, message):
 
 	ID = str(session.user.userId)
 	file_name = "{}.txt".format(recipient)
-	temp = ID + file_name
+	temp = ID[18:] + file_name
 	file_name = temp
 
 	obj = s3.Object(BUCKET_NAME,file_name)
@@ -79,13 +85,24 @@ def addSender(name):
 		session.attributes['in_progress'] = "leaveMessageSender"
 		return question(render_template('sender_request'))
 
+	try:
+		session.attributes['recipient']
+	except:
+		session.attributes['in_progress'] = "leaveMessageRecipient"
+		return question(render_template('repeat_recipient'))
+
+	try:
+		session.attributes['message']
+	except:
+		return statement(render_template('repeat_message'))
+
 	add_sender = session.attributes['sender']
 	add_recipient = session.attributes['recipient']
 	add_message = session.attributes['message']
 
 	ID = str(session.user.userId)
 	file_name = "{}.txt".format(add_recipient)
-	temp = ID + file_name
+	temp = ID[18:] + file_name
 	file_name = temp
 
 	obj = s3.Object(BUCKET_NAME,file_name)
@@ -104,7 +121,7 @@ def retrieveMessage(recipient):
 	#retrieve messages for a recipient	
 	ID = str(session.user.userId)
 	file_name = "{}.txt".format(recipient)
-	temp = ID + file_name
+	temp = ID[18:] + file_name
 	file_name = temp
 
 	#check if the inbox exists
@@ -117,28 +134,37 @@ def retrieveMessage(recipient):
 	#return contents and print on card
 	obj = s3.Object(BUCKET_NAME,file_name)
 	contents = obj.get()['Body'].read()
+
+	if contents == "":
+		return statement('You have no messages. Have a great day!')
+
 	return statement(contents).simple_card('Messages', contents)
 
 
 @ask.intent('DeleteMessageIntent', mapping={'recipient': 'Recipient'})
 def clearMessageLog(recipient):
 	#clears message log of a particular recipient
-	session.attributes['recipient'] = recipient
+	if (recipient):
+		session.attributes['recipient'] = recipient
+	
 	try:
 		session.attributes['recipient']
 	except:
 		return question(render_template('repeat_clear_inbox'))
 
 	#create new inbox file
-	userID = session.user.userId
-	file_name = userID + recipient + '.txt'
-	s3.Object(BUCKET_NAME, file_name ).put(Body=open(file_name, 'w+'))
-	return statement('success_clear_inbox')
+	ID = session.user.userId
+	file_name = ID[18:] + recipient + '.txt'
+	# s3.Object(BUCKET_NAME, file_name ).put(Body=open(file_name, 'w+'))
+	obj = s3.Object(BUCKET_NAME,file_name)
+	contents = ""
+	obj.put(Body=contents)
+
+	return statement(render_template('success_clear_inbox'))
 
 @ask.intent("AMAZON.StopIntent")
 def stop():
-	response = render_template('stop')
-	return statement(response)
+	return statement(render_template('stop'))
 
 @ask.intent("AMAZON.CancelIntent")
 def cancel():
@@ -150,7 +176,7 @@ def help():
 
 @ask.session_ended
 def session_ended():
-	return "", 200
-
+    return "", 200
+   
 if __name__ == '__main__':
     app.run(debug=True)

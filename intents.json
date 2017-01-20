@@ -1,39 +1,23 @@
 {
-
   "intents": [
-
     {
-
       "intent": "AddSenderIntent",
-
         "slots": [
-
           {
-
             "name": "Name",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           }
-
         ]
 
     },
 
     {
-
       "intent": "AddUserIntent",
-
         "slots": [
-
           {
-
             "name": "Recipient",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           }
-
         ]
 
     },
@@ -41,31 +25,20 @@
     {
 
       "intent": "LeaveMessageIntent",
-
         "slots": [
-
           {
-
             "name": "Sender",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           },
 
           {
-
             "name": "Recipient",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           }, 
 
           {
-
             "name": "Message",
-
             "type": "AMAZON.LITERAL"
-
           }
 
         ]
@@ -75,55 +48,34 @@
     {
 
       "intent": "RetrieveMessageIntent",
-
         "slots": [
-
           {
-
             "name": "Recipient",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           }
-
         ]
-
     },    
 
     {
-
       "intent": "DeleteMessageIntent",
-
         "slots": [
-
           {
-
             "name": "Recipient",
-
             "type": "AMAZON.GB_FIRST_NAME"
-
           }
-
         ]
-
     },    
 
     {
-
       "intent": "AMAZON.StopIntent"
-
     },
 
     {
-
       "intent": "AMAZON.CancelIntent"
-
     },
 
     {
-
       "intent": "AMAZON.HelpIntent"
-
     }
 
   ]
